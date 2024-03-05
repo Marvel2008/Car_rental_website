@@ -1,0 +1,751 @@
+html{
+    box-sizing: border-box;
+}
+
+*,*:after,*:before{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.section-title{
+    margin-bottom: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.container{
+    max-width: 1220px;/*Добавили падінг і врахували в ширину*/
+    margin: 0 auto;/*Поставе по центру*/
+    padding: 0 10px;
+}
+
+body{
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+html,body{
+    height: 100%;/*Ми вказали, що висота це вся сторінка а не до кінця футера, який ще не прижатий*/
+}
+
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    background-color: #151515;
+}
+
+.header-main{
+    background-color: transparent;
+    position: absolute;
+    z-index: 10;/*Цим ми підняли елемент*/
+    left:0;
+    right: 0;
+}
+
+.header__inner{
+    padding-top: 40px;
+    padding-bottom: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;/*Вирівнювання по нижній лінії*/
+}
+
+.menu__list{
+    display: flex;
+    gap: 35px; 
+}
+
+.menu__list-link{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.menu__list-link--active{
+    color: #0066FF;
+}
+
+.footer{
+    background-color: #151515;
+    padding: 50px 0 32px;
+    /* padding-top: 50px;
+    padding-bottom: 32px; */
+    color: #fff;
+}
+
+.footer__menu{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.footer__menu-title{
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+.footer__menu-item + .footer__menu-item{/*Після цього наш заголовок не подвінувся, але лише лі елементи*/
+   padding-top: 20px;
+}/*Фішка в тому що ми добавляємо сусіда, до якого вже буде використовуватися стилі і так ми пропутимо перший, який є заголовком*/
+.footer__menu-list{
+    max-width: 225px;
+}
+
+.app{
+    display: flex;
+    justify-content: center;
+    gap:68px;
+    margin-bottom:50px;
+}
+
+.footer__copy{
+    max-width: 806px;
+    margin: 0 auto 30px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.copy__nav-list{
+    display: flex;
+    justify-content: center;
+    gap:40px
+}
+
+.main{
+    flex-grow: 1;/*Вкаузє, щоб мейн максимально розширився*/
+}
+
+.top{
+    text-align: center;
+    color: #fff;
+    padding-top: 250px;
+    padding-bottom: 45px;
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    right: 0;
+}
+
+.title{
+    padding-bottom: 40px;
+    font-size: 96px;
+    font-weight: 700;
+}
+
+.top__link{
+    background-color: #151515;
+    padding: 23px;
+    max-width: 430px;
+    width: 100%;/*Написали щоб максимальна ширина застосувалася*/
+    display: inline-block;/*Силки в нас строчні і багато стилей не працюють відповідно. То ця властивість означає, що силка осанеться строчною, але параметри будуть прийматися як для обєкта*/
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.swiper::after{
+    content: '';
+    background: rgb(21,21,21,.3);
+    position: absolute;
+    z-index: 4;
+    left:0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+/*.swiper-wrapper{
+    background:rgb(21,21,21,.9);Завдяки цьому сам фон стає прозорішим
+}*/
+.swiper-slide{/*Спочатку його не було видно, бо висота була на нулю*/
+    background-repeat: no-repeat;
+    background-size: cover;/*Щоб займаоа все пространство, розтягувалася за необхідності*/
+    background-position: bottom center;
+    height: 100vh;/*100% Висоти екрана*/
+}/*Окрім цього ці параметри дозволяють картинці правильно відображатися на багатьох екранах, бо у всіх вони різні*/
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+    margin: 0 15px;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal{
+    bottom: 92px;
+}
+
+.swiper-pagination-bullet{
+    width: 120px;
+    height: 3px;
+    background-color: #151515;
+    border-radius: 0;
+    opacity: 1;
+    /* margin: 0 15px !important; */
+}
+
+.swiper-pagination-bullet-active{
+    height: 6px;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+.why-lease{
+    margin: 150px 0;
+}
+
+.why-lease__list{
+    display: grid;/*Використовуємо це замість флекс, бо з грідом буде легше писати адаптив сайта, бо позиція буде мінятися */
+    grid-template-columns: repeat(4,1fr);
+    gap: 40px;
+    text-align: center;
+}
+
+.why-lease__item-img{
+    margin-bottom: 30px;
+}
+
+.why-lease__item-title{
+    margin-bottom: 30px;
+    font-size: 24px; 
+    font-weight: 700;
+}
+
+.why-lease__item-text{
+    text-align: left;
+}
+
+.how-does{
+    padding-bottom: 150px;
+}
+
+.how-does__inner{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.how__does-title{
+    padding-top: 50px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.how-does-list{
+    padding: 50px 0 70px;
+    counter-reset: myCounter;
+}
+
+.how__does-item{
+    list-style-type: none;
+    width: 270px;
+    position: relative;
+    margin-left: auto;
+    padding: 19px 0 19px 240px;
+    box-sizing: content-box;
+    min-height: 63px;
+}
+
+.how__does-item + .how__does-item{
+    margin-top: 40px;
+}
+
+.how__does-item::before{
+    counter-increment: myCounter;
+    content: counter(myCounter);/*Завдяки цьому ми отримаує достукуємося до цифер в нашому списку, або точніше в нас створюються власні, але ми можемо їм задавати стилі*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0066FF;
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    left:0;
+    top: 0;
+}
+
+.video{
+    padding-bottom: 150px;
+}
+
+.video__title{
+    margin-bottom: 20px;
+}
+
+.video__text{
+    font-size: 24px; 
+    font-weight: 700; 
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.video__content{
+    margin: 0 auto;
+    display: block;
+}
+
+.important-title{
+    margin-bottom: 20px;
+}
+
+.important__list{
+    margin:50px 0 150px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.important-text{  
+    margin: 0 auto;
+    width: 580px;
+    height: 63px;
+    line-height: 20.8px;
+}
+
+.contacts{
+    padding: 100px 0 150px;
+}
+.contacts__title{
+    margin-bottom: 20px;
+}
+.contacts__text{
+    text-align: center;
+    font-size: 24px; 
+    font-weight: 700; 
+    margin-bottom: 50px;
+    padding: 0 100px;
+}
+
+form{
+    max-width: 580px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;/*Щоб могли переноситися, якщо їм мало місця*/
+}/*Ми поставили всі об'єкти в рядочок і вказали wrap, і потім зробили так що текстарія має займати всю ширину і воно перенеслося на наступний рядокі*/
+
+.form__input::placeholder,
+.form__textarea::placeholder{
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #000;
+    opacity: .5;
+}
+.form__input{
+    width: 270px;
+    padding: 18px 20px;
+    display: inline-block;
+    border: 1px solid #0066FF;
+    margin-bottom: 50px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #000;
+}
+
+.form__textarea{
+    width: 100%;
+    resize: none;
+    padding: 28px 20px;
+    height: 290px;
+    border: 1px solid #0066FF;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #000;
+    margin-bottom: 50px;
+}
+.form_btn{
+    margin: 0 auto;/*Спрацювало бо сам він флексовий, ми це задали всьому блоку*/
+    padding: 13px 61px;
+    background-color: #151515;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+    border-style: none;
+}
+
+.blog{
+    padding-bottom: 150px;
+}
+.blog__items{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:40px;
+    margin-bottom: 70px;
+}
+
+.blog__item{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.blog__item-img{
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.blog__item-title{
+    font-size: 24px;
+    font-weight: 700; 
+    flex-basis: 446px;
+}
+
+.blog__item-link{
+    padding: 4px 20px;
+    background-color: #0066FF;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    min-width: 80px;
+}
+
+.showmore__link{
+    text-transform: uppercase;
+    background-color: #151515;
+    padding: 13px 61px;
+    color: #fff;
+    width: 225px;
+    margin: 0 auto;/*Працює лише для блочних елементів*/
+    text-align: center;
+    display: block;/*Щоб відступ був не від букв а від об'єкта шо зверху*/
+}
+
+.choose{
+    padding: 100px 0 150px;
+}
+
+.tabs__btn{
+    padding: 0 150px;
+    display: flex;
+    justify-content: space-between;
+    gap:80px;
+    padding-bottom: 100px;
+}
+
+.tabs__btn-item{
+    font-size: 24px;
+    font-weight: 700; 
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+.tabs__btn-item--active{
+    color: #0066FF;
+}
+
+.tabs__content-item{
+    display: none;
+    grid-template-columns: repeat(4,1fr);
+    gap:100px 40px
+}
+
+.tabs__content-item.tabs__content-item--active{
+    display: grid;
+}
+
+.card{
+    text-align: center;
+}
+.card__content{
+    width: 100%;
+    border: 1px solid #0066FF;
+    border-top: none;
+}
+.card__title,
+.card__text,
+.card__price
+{
+    margin-bottom: 20px;
+}
+
+.card__title,
+.card__text,
+.card__price,
+.card__link
+{
+    padding: 0 5px;
+}
+
+.card__link{
+    border-top: solid 1px #0066FF;
+    display: block;
+}
+
+.card__title{
+    padding-top: 20px;
+    font-size: 24px; 
+    font-weight: 700; 
+}
+
+.card__text{
+    font-size: 16px; 
+    font-weight: 400; 
+    line-height: 130%; /* 20.8px */ 
+}
+
+.card__price{
+    font-size: 24px; 
+    font-weight: 700; 
+}
+
+.card__link{
+    color: #0066FF;
+    font-size: 16px; 
+    font-weight: 400;
+    line-height: 130%; /* 20.8px */ 
+}
+
+.card__img{
+    width: 100%;
+    display: block;
+}
+
+.link{
+    margin-top: 70px;
+}
+
+.menu__btn{
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: none;
+}
+
+.menu__btn span{
+    height: 2px;
+    background-color: #fff;
+    width: 100%;
+}
+
+@media (max-width:1180px){/*Все що ми тут напишемо будепрацювати коли екран буде менше ніж 1180px*/
+    .important__list{
+        gap: 30px 20px;
+    }
+    .important__item-img,.tabs__content{
+        width: 100%;
+    }
+    .tabs__content-item{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media (max-width:1040px){
+    .video__content{
+        width: 100%;
+    }
+    
+}
+
+@media (max-width:870px){
+    .menu__btn{
+        display: flex;
+    }
+    .menu__btn,
+    .logo{
+        position: relative;
+        z-index: 10;
+    }
+    .menu__list{
+        position: absolute;
+        z-index: 5;
+        background-color: #151515;
+        flex-direction: column;
+        align-items: center;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding-top: 200px;
+        height: 100vh;
+        transform: translateY(-100%);
+        transition: transform .4s ease;
+    }
+    .menu__list.menu__list--active{
+        transform: translateY(0%);
+    }
+    .why-lease__list{
+        grid-template-columns: repeat(2,1fr);
+        gap: 20px;
+    }
+    .important__list{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .tabs__content-item{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .tabs__btn
+    {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: space-between;
+        gap: 50px;
+        padding-bottom: 80px;
+    }
+    .section-title
+    {
+        font-size: 45px;
+        font-weight: 600;
+    }
+    .choose
+    {
+        padding: 100px 0 100px;
+    }
+}
+
+@media (max-width:768px){
+    .title{
+        font-size: 70px;
+    }
+    .top__link{
+        padding: 16px;
+        font-size: 28px;
+        max-width: 360px;
+    }
+    .footer__menu{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap:80px;
+    }
+    .video__content{
+        height: 400px;
+    }
+    .swiper-pagination-bullet{
+        width: 60px;
+    }
+    .swiper-pagination-bullet-active{
+        height: 4px;
+    }
+}
+
+@media (max-width:560px){
+    .title{
+        font-size: 60px;
+    }
+    .top__link{
+        max-width: 310px;
+        font-size: 24px;
+    }
+    .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+        margin: 0 10px;
+    }
+    .swiper-pagination-bullet{
+        width: 35px;
+    }
+    .why-lease__list{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .why-lease{
+        padding: 0 0;
+    }
+    .section-title{
+        font-size: 34px;
+    }
+    .how-does
+    {
+        padding-bottom: 70px;
+    }
+    .how-does-list
+    {
+        padding: 30px 0 60px;
+    }
+
+    .how__does-item
+    {
+        width: 221px;
+        padding: 2px 0 2px 193px;
+    }
+    .how__does-item::before{
+        font-size: 30px;
+        width: 50px;
+        height: 50px;
+    }
+    .video
+    {
+        padding-bottom: 50px;
+    }
+    .video__content{
+        height: 200px;
+    }
+    .important-text
+    {
+        width: 100%;
+        height: 76px;
+        line-height: 20.8px;
+    }
+    .important__list{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .app,
+    .copy__nav-list
+    {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tabs__content-item{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .blog__items
+    {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px;
+        margin-bottom: 65px;
+    }
+    .blog__item-title{
+        margin-bottom: 10px;
+    }
+    .blog__item-link{
+        margin-left: auto;
+    }
+    .tabs__btn
+    {
+        position: relative;
+        right: 25px;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 30px;
+        padding-bottom: 80px;
+    }
+    .form__input
+    {
+        width: 100%;
+    }
+    .contacts__text
+    {
+
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 44px;
+    }
+}
